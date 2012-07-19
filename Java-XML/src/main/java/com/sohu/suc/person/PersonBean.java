@@ -1,5 +1,9 @@
 package com.sohu.suc.person;
 
+/**
+ * @author Bob
+ * @version2012-7-19
+ */
 public class PersonBean {
 	
 	private String sex;

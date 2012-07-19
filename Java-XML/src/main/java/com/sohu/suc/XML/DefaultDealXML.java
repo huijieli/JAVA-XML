@@ -12,11 +12,15 @@ import org.w3c.dom.*;
 import com.sohu.suc.person.PersonBean;
 
 
-enum DefaultDealXML implements DealXML {
+/**
+ * @author Bob
+ * XML¥¶¿Ì¿‡
+ */
+
+public enum DefaultDealXML implements DealXML {
 	INSTANCE;
 	
 	
-
 	public Vector<PersonBean> readXMLFile(String inFile) throws Exception {
 	    Vector<PersonBean> person_vector=new Vector<PersonBean>();
 		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
@@ -73,6 +77,9 @@ enum DefaultDealXML implements DealXML {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.sohu.suc.XML.DealXML#writeXMLFile(java.lang.String, java.util.Vector)
+	 */
 	public void writeXMLFile(String outFile,Vector<PersonBean> person_vector)throws Exception {
 		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
 		DocumentBuilder db=null;

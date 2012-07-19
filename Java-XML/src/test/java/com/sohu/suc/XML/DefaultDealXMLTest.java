@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 
 public class DefaultDealXMLTest extends TestCase {
 
-	public static void main(String[] args) throws Exception {
+	public void testDefaultDealXMLTest() throws Throwable{   
 		PersonBean person=new PersonBean();
 		person.setAge(100);
 		person.setName("2»õ");
