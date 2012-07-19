@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<personinformation>
+<person sex="male">
+<name>bob</name>
+<age>20</age>
+<phone>66546546</phone>
+</person>
+</personinformation>

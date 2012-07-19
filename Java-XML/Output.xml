@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<personinformation>
+  <person sex="male">
+    <name>bob</name>
+    <age>20</age>
+    <phone>20</phone>
+  </person>
+  <person sex=" 男">
+    <name>2货</name>
+    <age>100</age>
+    <phone>15109265656</phone>
+  </person>
+</personinformation>
+
