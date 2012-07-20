@@ -24,7 +24,7 @@ public class DefaultDealXMLTest extends TestCase {
 			e.printStackTrace();
 		}
 		try {
-			xmltest.writeXMLFile("Output1.xml",xmltest.readXMLFile("Input.xml"));
+			xmltest.writeXMLFile("Output.xml",xmltest.readXMLFile("Input.xml"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class DefaultDealXMLTest extends TestCase {
 		
 		try {
 			person_vector.add(person);
-			xmltest.writeXMLFile("Output.xml", person_vector);
+			xmltest.writeXMLFile("Output1.xml", person_vector);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

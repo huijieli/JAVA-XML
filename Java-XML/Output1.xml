@@ -2,9 +2,14 @@
 
 <personinformation>
   <person sex="male">
-    <name>bob</name>
+    <name>20</name>
     <age>20</age>
     <phone>20</phone>
+  </person>
+  <person sex=" ÄÐ">
+    <name>100</name>
+    <age>100</age>
+    <phone>100</phone>
   </person>
 </personinformation>
 
