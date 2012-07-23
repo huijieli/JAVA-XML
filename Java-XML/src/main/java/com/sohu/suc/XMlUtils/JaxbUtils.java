@@ -1,10 +1,23 @@
 package com.sohu.suc.XMlUtils;
+import static org.junit.Assert.fail;
+
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;   
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;   
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
   
 import javax.xml.bind.JAXBContext;   
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;   
 import javax.xml.bind.Unmarshaller; 
 
@@ -22,11 +35,10 @@ import com.sohu.suc.JAXB.Patterns;
  */
 public class JaxbUtils {
 	
+	public static final String DEFAULT_CHARSET_NAME = "GBK";
 
-
-public void javaToXml() {
-
-        try {
+ void javaToXml() {
+ try {
 
             JAXBContext jc = JAXBContext.newInstance(MessageTemplateInfo.class);    //参数为JAXB生成的java文件所在包名
 
@@ -55,10 +67,8 @@ public void javaToXml() {
 
 
             Marshaller marshaller = jc.createMarshaller(); 
-
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-            marshaller.marshal( msgTemplates,new FileOutputStream("test.xml"));
+             marshaller.marshal( msgTemplates,new FileOutputStream("test.xml"));
 
         } catch (Exception e) {
 
@@ -67,6 +77,55 @@ public void javaToXml() {
         }
 
     }
+ 
+ @SuppressWarnings("unchecked")
+MessageTemplateInfo XmlTojava() throws JAXBException{
+	 URL xmlUrl = this.getClass().getResource("/test.xml");
+		File demoFile = null;
+		try {
+			demoFile = new File(xmlUrl.toURI());
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+			fail(e1.getMessage());
+		}
+		
+			String xml=new String();
+			try {
+				xml = inputStreamToString(new FileInputStream(demoFile));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(xml);
+	        BufferedReader bufferedReader = new BufferedReader(new StringReader(xml));
+			
+			JAXBContext jc = JAXBContext.newInstance(MessageTemplateInfo.class);    //参数为JAXB生成的java文件所在包名
+
+			Unmarshaller unmarshaller = jc.createUnmarshaller();
+			return (MessageTemplateInfo) unmarshaller.unmarshal(bufferedReader);
+		 
+	 
+ }
+ 
+ 
+ public static String inputStreamToString(InputStream inputStream) throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, DEFAULT_CHARSET_NAME));
+		StringWriter stringWriter = new StringWriter();
+		String lineStr = bufferedReader.readLine();
+		boolean readEnd = false;
+		while(!readEnd) {
+			if(lineStr != null) {
+				stringWriter.write(lineStr);
+				lineStr = bufferedReader.readLine();
+			} else {
+				readEnd = true;
+			}
+		}
+		return stringWriter.toString();
+	}
 
 
 }

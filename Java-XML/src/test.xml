@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<message_template_info xmlns="http://i.sohu.com/message/message_template_info">
+    <message_template>
+        <parent_type>parenttype</parent_type>
+        <parent>parent</parent>
+        <matcher_class>matcher</matcher_class>
+        <converter>converter</converter>
+        <patterns>
+            <pattern>
+                <id>default</id>
+                <matcher_method>match</matcher_method>
+                <content>这是第{0}个测试——{1}。</content>
+            </pattern>
+        </patterns>
+    </message_template>
+</message_template_info>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<tns:message_template_info 
+	xmlns:tns="http://i.sohu.com/message/message_template_info" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://i.sohu.com/message/message_template_info message_template_info.xsd ">
+  <tns:message_template>
+    <tns:type>tns:type</tns:type>
+    <tns:top_type>tns:top_type</tns:top_type>
+    <tns:parent_type>tns:parent_type</tns:parent_type>
+    <tns:parent>tns:parent</tns:parent>
+    <tns:matcher_class>tns:matcher_class</tns:matcher_class>
+    <tns:converter>com.sohu.suc.message.converter.InformConverter:convert</tns:converter>
+    <tns:patterns>
+      <tns:pattern>
+        <tns:id>tns:id</tns:id>
+        <tns:matcher_method>tns:matcher_method</tns:matcher_method>
+        <tns:content>tns:content</tns:content>
+      </tns:pattern>
+    </tns:patterns>
+  </tns:message_template>
+</tns:message_template_info>
